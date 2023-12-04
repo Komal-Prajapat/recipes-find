@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    <title>Document</title>
+    <style>
+        /* Add your CSS styles here */
+        /* ... */
+    </style>
+</head>
+<body>
+    <div class="card" id="htmlCard">
+        <div class="rating">
+            <h2><span class="counter" data-target="90">90</span><sub>%</sub><br>HTML</h2>
+            <div class="block"></div>
+        </div>
+    </div>
+
+    <div class="card" id="cssCard">
+        <div class="rating">
+            <h2><span class="counter" data-target="80">80</span><sub>%</sub><br>CSS</h2>
+            <div class="block"></div>
+        </div>
+    </div>
+
+    <script>
+        function createCircularProgressBar(cardId, percentage) {
+            const rating = document.getElementById(cardId).getElementsByClassName('rating')[0];
+            for (let i = 1; i <= percentage; i++) {
+                const block = document.createElement('div');
+                block.className = 'block';
+                block.style.transform = `rotate(${3.6 * i}deg)`;
+                block.style.animationDelay = `${i / 40}s`;
+                rating.appendChild(block);
+            }
+        }
+
+        // Create circular progress bars for each card
+        createCircularProgressBar('htmlCard', 90);
+        createCircularProgressBar('cssCard', 80);
+    </script>
+</body>
+</html>
